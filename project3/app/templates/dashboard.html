@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+  <h3>Welcome, {{ current_user.username }}!</h3>
+  <br>
+  <hr>
+  <h2>Your posts</h2>
+  <hr>
+  <h3><a href="/dashboard/newpost">Create a new post</a></h3>
+  <table>
+  {% for post in posts %}
+    <tr>
+      <td><a href="{{ post.post_link() }}">{{ post.subject }}</a></td>
+      <td>{{ post.created|datetimeformat }}</td>
+      <td>
+        <form method="get" action="{{ post.post_link() }}/edit">
+          <input type="submit" class="button" value="Edit">
+        </form>
+      </td>
+      <td>
+        <form method="post" action="{{ post.post_link() }}/delete">
+          <input type="submit" class="button" value="Delete"  onclick="return confirm('Are you sure?')">
+        </form>
+      </td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

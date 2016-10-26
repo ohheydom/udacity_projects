@@ -1,0 +1,10 @@
+{% if current_user and current_user != post.key.parent().get() %}
+  <div class="like-dislike">
+    <form method="post" action="{{ post.post_link() }}/like">
+      <input type="submit" value="Like" name="like" class="button small button-like {{ like_class }}">
+      <input type="submit" value="Dislike" name="like" class="button small button-dislike {{ dislike_class }}">
+    </form>
+  </div>
+{% endif %}
+<hr>
+<span class="likes">Likes: {{ post.likes }}</span> | <span class="dislikes">Dislikes: {{ post.dislikes }}</span>

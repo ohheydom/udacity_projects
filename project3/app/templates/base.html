@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blogacity</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation-flex.min.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="/assets/js/scripts.js"></script>
+</head>
+<body>
+  <header>
+    <div class="row">
+      <div class="medium-8 columns">
+        <h1 class="website-title"><a href="/">Blogacity</a></h1>
+      </div>
+      <div class="medium-4 login-logout columns">
+        {% if current_user %}
+          <a href="/dashboard">Dashboard</a> | <a href="/dashboard/newpost">New Post</a> | <a href="/logout">Logout</a>
+        {% else %}
+          <a href="/signup">Signup!</a> | <a href="/login">Login</a>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+  <div class="row">
+    <div class="small-12 columns">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="row">
+  <div class="small-12 columns">
+    {% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+        <div class="flash">
+          <ul>
+            {% for category, message in messages %}
+              <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endwith %}
+    You are now logged out! Click <a href="login">here</a> to log back in!
+  </div>
+</div>
+{% endblock %}

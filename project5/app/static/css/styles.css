@@ -1,0 +1,44 @@
+/********/
+/*Header*/
+/********/
+
+header {
+  background-color: linen;
+}
+
+/**************/
+/*show_startup*/
+/**************/
+
+.links, .description, .last-updated {
+  margin-top: 2em;
+}
+/*******/
+/*login*/
+/*******/
+
+.quarter-margin-bottom {
+  height: 25vh;
+}
+
+.sign-in {
+  text-align: center;
+}
+
+/*******/
+/*Flash*/
+/*******/
+
+.success {
+  color: #216894;
+}
+
+.error {
+  color: #f08080;
+}
+
+.flash {
+  background-color: #ededed;
+  border-radius: 20px;
+  font-size: 1.25em;
+}

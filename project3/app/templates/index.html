@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Recent Posts</h2>
+  {% for post in posts %}
+    {{ post.render(render_link=True, render_snippet=True, current_user=current_user)|safe }}
+  {% endfor %}
+{% endblock %}

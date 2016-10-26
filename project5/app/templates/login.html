@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Startup Jobs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation-flex.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+  <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</head>
+<body>
+  <header>
+    <div class="row align-middle">
+      <div class="small-8 columns">
+        <h1><a href="/">Startup Jobs</a></h1>
+      </div>
+      <div class="small-4 columns text-right">
+        {% if logged_in %}
+          <div id="welcome">Welcome, {{ logged_in }}</div>
+          <div id="login-logout"><a href="/logout">Logout</a></div>
+        {% else %}
+          <div id="login-logout"><a href="/login">Login</a></div>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+  <div class="row">
+    <div class="small-12 columns">
+      {% with messages = get_flashed_messages(category_filter=['error']) %}
+        {% if messages %}
+          <div class="flash error">
+            <ul>
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      {% endwith %}
+      <div id="result" class="success"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <h2 class="quarter-margin-bottom">Login</h2>
+      <div class="sign-in">
+        <button id="sign-in-button" class="button">Sign in with Google</button>
+      </div>
+    </div>
+  </div>
+  <form><input type="hidden" value="{{ state }}"></form>
+</body>
+</html>

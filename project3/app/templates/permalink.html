@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+  {{ post.render(render_link=False, render_snippet=False, current_user=current_user)|safe }}
+  <hr>
+  <h2>Comments</h2>
+  {% if current_user %}
+    Add a new comment:
+    <form method="post" action="{{ post.post_link() }}/newcomment">
+      <textarea name="content" id="textarea-comment"></textarea>
+      <input type="submit" value="Submit" class="button">
+    </form>
+    <div class="errors">
+      {% if comment_error %}
+        {{ comment_error }}
+      {% endif %}
+    </div>
+  {% endif %}
+  <hr>
+  {% if comments %}
+    {% for comment in comments %}
+      {{ comment.render(current_user=current_user)|safe }}
+    {% endfor %}
+  {% endif %}
+{% endblock %}

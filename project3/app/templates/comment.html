@@ -1,0 +1,15 @@
+<div class="comment-author">
+  {{ comment.author.get().username }} posted on {{ comment.created|datetimeformat }}
+  {% if comment.author == current_user.key %}
+    <form class="edit-delete" method="get" action="{{ comment.comment_link() }}/edit">
+      <input type="submit" class="button small" value="Edit">
+    </form>
+    <form class="edit-delete" method="post" action="{{ comment.comment_link() }}/delete">
+      <input type="submit" class="button small" value="Delete" onclick="return confirm('Are you sure?')">
+    </form>
+  {% endif %}
+</div>
+<div class="comment-content">
+  {{ comment.content|safe }}
+</div>
+<hr class="hr-comment">

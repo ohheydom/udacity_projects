@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Edit Post</h2>
+  <form method="post">
+    <div class="row">
+      <div class="medium-3 columns small-12">
+        <label for="subject">Subject</label>
+      </div>
+      <div class="medium-5 columns small-12 end">
+        <input type="text" name="subject" value="{{ post.subject }}">
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-3 columns small-12">
+        <label for="content">Content</label>
+      </div>
+      <div class="medium-5 columns small-12 end">
+        <textarea name="content" id="textarea-post">{{ post.content }}</textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-5 small-12 medium-offset-3 columns end text-right">
+        <input type="reset" value="Reset" class="button">
+        <input type="submit" value="Save Changes" class="button">
+        <a href="." class="button">Cancel</a>
+      </div>
+    </div>
+    {% if errors %}
+      <div class="errors">
+        <ul>
+        {% for error in errors %}
+          <li>{{error}}</li>
+        {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </form>
+{% endblock %}

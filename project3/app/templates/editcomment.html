@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Edit comment</h2>
+  <form method="post" action="{{ comment.comment_link() }}/edit">
+    <textarea name="content" id="textarea-comment">{{ comment.content }}</textarea>
+    <input type="submit" value="Save Changes" class="button">
+    <input type="reset" value="Reset" class="button">
+    <a href="../.." class="button">Cancel</a>
+  </form>
+{% endblock %}

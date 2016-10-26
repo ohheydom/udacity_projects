@@ -1,0 +1,20 @@
+<article>
+  {% if render_link == True %}
+    <a href="{{ post.post_link() }}"><h2 class="subject">{{ post.subject }}</h2></a>
+  {% else %}
+    <h2 class="subject">{{ post.subject }}</h2>
+  {% endif %}
+  <span class="created float-left">{{ post.created|datetimeformat }}</span>
+  {% if render_link == True %}
+    <span class="author float-right">Submitted by {{ post.key.parent().get().username }}</span>
+  {% endif %}
+  <div class="content">
+  {{ post.render_text_|safe }}
+  </div>
+  {% if render_link == False %}
+    <div class="author">Submitted by {{ post.key.parent().get().username }}</div>
+  {% endif %}
+  <div class="like-area {{ post.slug }}">
+    {{ post.render_likes(current_user)|safe }}
+  </div>
+</article>

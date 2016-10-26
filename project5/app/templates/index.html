@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="row">
+  <div class="small-12 columns">
+    {% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+        <div class="flash">
+          <ul>
+            {% for category, message in messages %}
+              <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endwith %}
+  </div>
+</div>
+<div class="row">
+  <div class="medium-4 columns">
+    <h2>Cities</h2>
+    <ul>
+      {% for city in cities %}
+        <li><a href="{{ url_for('show_city', city_slug=city.slug) }}">{{ city.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="medium-8 columns">
+    <h2>Latest Startup Companies</h2>
+    <ul>
+      {% for startup in latest_startups %}
+        <li><a href="{{ url_for('show_startup', city_slug=startup.city.slug, startup_slug=startup.slug) }}">{{ '{} ({})'.format(startup.name, startup.city.name) }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}

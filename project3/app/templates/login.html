@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Login</h2>
+  <form method="post">
+    <div class="row">
+      <div class="medium-3 small-12 columns">
+        <label for="username">Username</label>
+      </div>
+      <div class="medium-3 small-12 columns end">
+        <input type="text" value="{{ username }}" name="username">
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-3 small-12 columns">
+        <label for="password">Password</label>
+      </div>
+      <div class="medium-3 small-12 columns end">
+        <input type="password" name="password">
+      </div>
+    </div>
+    {% if errors %}
+      <div class="row">
+        <div class="medium-6 medium-offset-3 columns errors">
+          Incorrect username or password.
+        </div>
+      </div>
+    {% endif %}
+    <div class="row">
+      <div class="medium-3 small-12 medium-offset-3 columns end text-right">
+        <input type="submit" value="Login" class="button">
+      </div>
+    </div>
+  </form>
+  <div class="account">Don't have an account?? Click <a href="/signup">here</a> to signup!</div>
+{% endblock %}

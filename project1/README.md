@@ -1,4 +1,4 @@
-# Movie Trailer Website
+# Movie Trailer Website (Project 1)
 
 ### Information
 

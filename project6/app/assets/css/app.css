@@ -1,0 +1,38 @@
+/*////////////////////*/
+/*Foundation overrides*/
+/*////////////////////*/
+
+.row {
+  width: 100%;
+  min-width: 100%;
+}
+
+/*****/
+/*Map*/
+/*****/
+
+#map {
+  width: 100%;
+  height: 100vh;
+}
+
+/************/
+/*Off Canvas*/
+/************/
+
+.indent {
+  text-indent: 1em;
+}
+
+#locations-header {
+  border-bottom: 1px solid black;
+}
+
+.location-link {
+  cursor: pointer;
+}
+
+.location-link:hover {
+  background-color: #eeeeee;
+  border-radius: 5px;
+}

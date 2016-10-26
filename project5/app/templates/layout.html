@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Startup Jobs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation-flex.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="row align-middle">
+      <div class="small-8 columns">
+        <h1><a href="/">Startup Jobs</a></h1>
+      </div>
+      <div class="small-4 columns text-right">
+        {% if logged_in %}
+          <div id="welcome">Welcome, {{ logged_in }}</div>
+          <div id="login-logout"><a href="/logout">Logout</a></div>
+        {% else %}
+          <div id="login-logout"><a href="/login">Login</a></div>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+  {% block body %}
+  {% endblock %}
+</body>
+</html>
