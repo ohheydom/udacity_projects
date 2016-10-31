@@ -78,42 +78,42 @@ To play:
 ## Api Endpoints
 
 * **new\_user**
-  * Path: `new\_user`
+  * Path: `new_user`
   * Method: POST
   * Parameters: name, email
   * Returns: Message confirmation
   * Description: Creates a new user based on a unique name. The endpoint will raise a ConflictException if the user already exists.
 
 * **new\_game**
-  * Path: `new\_game`
+  * Path: `new_game`
   * Method: POST
   * Parameters: player\_one\_name, player\_two\_name, winning\_total
   * Returns: GameForm with game state
   * Description: Creates a new game with two unique players. Both players must exist in the database or the endpoint will raise a NotFoundException.
 
 * **get\_game**
-  * Path: `game/{urlsafe\_key}`
+  * Path: `game/{urlsafe_key}`
   * Method: GET
   * Parameters: urlsafe\_key
   * Returns: GameForm with the current game state
   * Description: Returns the game state. Raises a NotFoundException if game does not exist.
 
 * **delete\_game**
-  * Path: `game/{urlsafe\_key}/delete`
+  * Path: `game/{urlsafe_key}/delete`
   * Method: DELETE
   * Parameters: urlsafe\_key
   * Returns: Message confirmation
   * Descriptions: Deletes an incomplete game. If the game is already completed, the endpoint returns a BadRequestException. If game is not found, it raises a NotFoundException.
 
 * **roll\_dice**
-  * Path: `game/{urlsafe\_key}/roll\_dice`
+  * Path: `game/{urlsafe_key}/roll_dice`
   * Method: PUT
   * Parameters: urlsafe\_key
   * Returns: GameForm
   * Description: Rolls the dice and inserts the values into the database
 
 * **save\_dice**
-  * Path: `game/{urlsafe\_key}/save\_dice`
+  * Path: `game/{urlsafe_key}/save_dice`
   * Method: PUT
   * Parameters: urlsafe\_key, indices, bank
   * Returns: GameForm
@@ -127,14 +127,14 @@ To play:
   * Descriptions: Returns all the games that a user is currently playing.
 
 * **get\_user\_rankings**
-  * Path: `user\_rankings`
+  * Path: `user_rankings`
   * Method: GET
   * Parameters: None
   * Returns: UserRankingsForms
   * Descriptions: Returns the rankings of all users in the database in descending order by rank. Rank is determined by winning percentage.
 
 * **get\_game\_history**
-  * Path: `game/{urlsafe\_key}/history`
+  * Path: `game/{urlsafe_key}/history`
   * Method: GET
   * Parameters: urlsafe\_key
   * Returns: GameHistoryForm
